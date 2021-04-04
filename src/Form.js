@@ -65,7 +65,7 @@ const Form = ({ llst, setLlst, setFix, fix }) => {
           <div className="col-md-9 register-right">
             <div className="tab-content" id="myTabContent">
               <div className="tab-pane fade show active" id="home">
-                <h3 className="register-heading">Apply as a Employee</h3>
+                <h3 className="register-heading">made by vivek bhore</h3>
                 <div className="row register-form">
                   <div className="col-md-6">
                     <div className="form-group">
