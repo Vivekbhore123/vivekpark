@@ -15,6 +15,9 @@ const Form = ({ llst, setLlst, setFix, fix }) => {
 var strp = mobile;
 var no = strp.length;
 
+var strptwo = name;
+var notwo = strptwo.length;
+
 
 function ValidateEmail(mail){
 
@@ -63,33 +66,38 @@ if (age >= 18) {
 const mob=Number(mobile);
   if (ValidateEmail(mail)){
    if (no === 10 && Number.isInteger(mob)) {
-     Axios.post("https://vivekappmern.herokuapp.com/addfriend", {
-       name: name,
-       mail: mail,
-       dob: dob,
-       mobile: mobile,
-     })
-       .then((response) => {
-         console.log(response);
-         setListOfFriends([
-           ...listOfFriends,
-           {
-             _id: response.data.id,
-             name: name,
-             mail: mail,
-             dob: dob,
-             mobile: mobile,
-           },
-         ]);
-         setLlst(listOfFriends);
-         setName("");
-         setMail("");
-         setDob("");
-         setMobile("");
-       })
-       .then(() => {
-         setFix(false);
-       });
+     if(notwo>=3)
+     {
+            Axios.post("https://vivekappmern.herokuapp.com/addfriend", {
+              name: name,
+              mail: mail,
+              dob: dob,
+              mobile: mobile,
+            })
+              .then((response) => {
+                console.log(response);
+                setListOfFriends([
+                  ...listOfFriends,
+                  {
+                    _id: response.data.id,
+                    name: name,
+                    mail: mail,
+                    dob: dob,
+                    mobile: mobile,
+                  },
+                ]);
+                setLlst(listOfFriends);
+                setName("");
+                setMail("");
+                setDob("");
+                setMobile("");
+              })
+              .then(() => {
+                setFix(false);
+              });
+     }else{
+       alert("name should contain at least 3 characters")
+     }
    } else {
      alert("invalid mobile no");
    }
