@@ -59,8 +59,12 @@ const Form = ({ llst, setLlst, setFix, fix }) => {
         <div className="row">
           <div className="col-md-3 register-left">
             <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
-            <h3>Welcome</h3>
-            <p>You are 30 seconds away from earning your own money!</p>
+            <h3>Assignment for internship</h3>
+            <p>
+              Fill the details. You will be redirected to new page once you
+              submit the form and name will appear in list. A mail will be sent
+              to you for confirmation
+            </p>
           </div>
           <div className="col-md-9 register-right">
             <div className="tab-content" id="myTabContent">
@@ -69,6 +73,7 @@ const Form = ({ llst, setLlst, setFix, fix }) => {
                 <div className="row register-form">
                   <div className="col-md-6">
                     <div className="form-group">
+                      <label>Full Name</label>
                       <input
                         type="text"
                         className="form-control"
@@ -80,6 +85,7 @@ const Form = ({ llst, setLlst, setFix, fix }) => {
                       />
                     </div>
                     <div className="form-group">
+                      <label>Date of birth</label>
                       <input
                         type="date"
                         className="form-control"
@@ -93,6 +99,7 @@ const Form = ({ llst, setLlst, setFix, fix }) => {
                   </div>
                   <div className="col-md-6">
                     <div className="form-group">
+                      <label>Mail</label>
                       <input
                         type="email"
                         className="form-control"
@@ -104,6 +111,7 @@ const Form = ({ llst, setLlst, setFix, fix }) => {
                       />
                     </div>
                     <div className="form-group">
+                      <label>Mobile no.</label>
                       <input
                         type="text"
                         minLength="10"
