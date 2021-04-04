@@ -7,7 +7,7 @@ import List from "./List";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Form from "./Form";
 import Ema from "./Ema"; 
-function App() { 
+function App() {  
 
   const [llst,setLlst]=useState([]);
   const [fix,setFix]=useState(true);

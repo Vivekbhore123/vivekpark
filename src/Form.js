@@ -10,33 +10,95 @@ const Form = ({ llst, setLlst, setFix, fix }) => {
   const [listOfFriends, setListOfFriends] = useState([]);
 
   const addFriend = () => {
-    Axios.post("https://vivekappmern.herokuapp.com/addfriend", {
-      name: name,
-      mail: mail,
-      dob: dob,
-      mobile: mobile,
-    })
-      .then((response) => {
-        console.log(response);
-        setListOfFriends([
-          ...listOfFriends,
-          {
-            _id: response.data.id,
-            name: name,
-            mail: mail,
-            dob: dob,
-            mobile: mobile,
-          },
-        ]);
-        setLlst(listOfFriends);
-        setName("");
-        setMail("");
-        setDob("");
-        setMobile("");
-      })
-      .then(() => {
-        setFix(false);
-      });
+    // console.log(dob);
+    
+var strp = mobile;
+var no = strp.length;
+
+
+function ValidateEmail(mail){
+
+   var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+   if (mail.match(mailformat)) {
+    //  alert("Valid email address!");
+     return true;
+   } else {
+     alert("You have entered an invalid email address!");
+     return false;
+   }
+}
+ 
+
+
+
+
+var str = dob;
+var res = str.replace("-", "");
+    res = res.replace("-", "");
+//  alert(res.trim());
+var dobt = res;
+var year = Number(dobt.substr(0, 4));
+var month = Number(dobt.substr(4, 2)) - 1;
+var day = Number(dobt.substr(6, 2));
+var today = new Date();
+var age = today.getFullYear() - year;
+if (
+  today.getMonth() < month ||
+  (today.getMonth() === month && today.getDate() < day)
+) {
+  age--;
+}
+
+
+
+
+
+
+
+
+
+
+// alert(age);
+if (age >= 18) {
+const mob=Number(mobile);
+  if (ValidateEmail(mail)){
+   if (no === 10 && Number.isInteger(mob)) {
+     Axios.post("https://vivekappmern.herokuapp.com/addfriend", {
+       name: name,
+       mail: mail,
+       dob: dob,
+       mobile: mobile,
+     })
+       .then((response) => {
+         console.log(response);
+         setListOfFriends([
+           ...listOfFriends,
+           {
+             _id: response.data.id,
+             name: name,
+             mail: mail,
+             dob: dob,
+             mobile: mobile,
+           },
+         ]);
+         setLlst(listOfFriends);
+         setName("");
+         setMail("");
+         setDob("");
+         setMobile("");
+       })
+       .then(() => {
+         setFix(false);
+       });
+   } else {
+     alert("invalid mobile no");
+   }
+  }
+    
+} else {
+  alert("age must be greater than 18");
+}
+
    
    
   };
@@ -59,7 +121,7 @@ const Form = ({ llst, setLlst, setFix, fix }) => {
         <div className="row">
           <div className="col-md-3 register-left">
             <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
-            <h3>Assignment for internship</h3>
+            <h3>Assignment for internship "with validation update"</h3>
             <p>
               Fill the details. You will be redirected to new page once you
               submit the form and name will appear in list. A mail will be sent
@@ -82,6 +144,7 @@ const Form = ({ llst, setLlst, setFix, fix }) => {
                         onChange={(event) => {
                           setName(event.target.value);
                         }}
+                        required
                       />
                     </div>
                     <div className="form-group">
@@ -94,6 +157,7 @@ const Form = ({ llst, setLlst, setFix, fix }) => {
                         onChange={(event) => {
                           setDob(event.target.value);
                         }}
+                        required
                       />
                     </div>
                   </div>
@@ -104,25 +168,28 @@ const Form = ({ llst, setLlst, setFix, fix }) => {
                         type="email"
                         className="form-control"
                         placeholder="Your Email *"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
                         value={mail}
                         onChange={(event) => {
                           setMail(event.target.value);
                         }}
+                        required
                       />
                     </div>
                     <div className="form-group">
-                      <label>Mobile no.</label>
+                      <label>Mobile</label>
                       <input
                         type="text"
                         minLength="10"
                         maxLength="10"
                         name="txtEmpPhone"
                         className="form-control"
-                        placeholder="Your Phone *"
+                        placeholder="Your Phone 10 digit *"
                         value={mobile}
                         onChange={(event) => {
                           setMobile(event.target.value);
                         }}
+                        required
                       />
                     </div>
 

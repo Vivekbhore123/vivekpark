@@ -1,25 +1,38 @@
 import React from 'react'
-import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+// import "./App.css";
 function List({ listOfFriends }) {
   return (
-    <div className="listOfFriends">
-        {listOfFriends.map((val) => {
-          return (
-            <div className="friendContainer">
-              <div className="friend">
-                <h5>Name: {val.name}</h5>
-                 <h5> Date of birth: {val.dob}</h5>
-                 <h5> E-mail: {val.mail}</h5>
-                 <h5> Mobile: {val.mobile}</h5>
-              </div>
-            
-              
-            </div>
-          );
-        })}
-      </div>
-
+    <div>
+      <table className="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Date of birth</th>
+            <th scope="col">Mail</th>
+            <th scope="col">Mobile</th>
+          </tr>
+        </thead>
+      </table>
+      {listOfFriends.map((val) => {
+        return (
+          <table className="table">
+            <tbody>
+              <tr>
+                <td>{val.name}</td>
+                <td>{val.dob}</td>
+                <td>{val.mail}</td>
+                <td>{val.mobile}</td>
+              </tr>
+            </tbody>
+          </table>
+        );
+      })}
+    </div>
   );
 }
 
 export default List
+
+
