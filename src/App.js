@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+// import Axios from "axios";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css";
+import List from "./List";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Form from "./Form";
+import Ema from "./Ema"; 
+function App() { 
+
+  const [llst,setLlst]=useState([]);
+  const [fix,setFix]=useState(true);
+
+return (
+  <div>
+    {fix ? (
+      <Form llst={llst} setLlst={setLlst} setFix={setFix} fix={fix} />
+    ) : (
+      <div>
+        <Ema listOfFriends={llst} />
+        <List listOfFriends={llst} />
+      </div>
+    )}
+    {/* <Ema /> */}
+  </div>
+);
+ 
 }
+
+
 
 export default App;

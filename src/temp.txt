@@ -1,0 +1,71 @@
+import React from "react";
+// import emailjs from "emailjs-com";
+import nodemailer from "nodemailer";
+// import "./ContactUs.css";
+
+export default function Ema({ listOfFriends }) {
+  // function sendEmail(e) {
+  //   e.preventDefault();
+
+  //   emailjs
+  //     .sendForm(
+  //       "service_mq29c79",
+  //       "template_d88b65g",
+  //       e.target,
+  //       "user_99Tukm0APUEDWCioH1oBq"
+  //     )
+  //     .then(
+  //       (result) => {
+  //         console.log(result.text);
+  //       },
+  //       (error) => {
+  //         console.log(error.text);
+  //       }
+  //     );
+  // }
+
+  var transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: "rrppvsb9008@gmail.com",
+      pass: "rrppvsb@44",
+    },
+  });
+
+  var mailOptions = {
+    from: "rrppvsb9008@gmail.com",
+    to: `${listOfFriends[listOfFriends.length - 1].mail}`,
+    subject: "Sending Email using Node.js",
+    text: `Hi Smartherd, thank you for your nice Node.js tutorials.
+          I will donate 50$ for this course. Please send me payment options.`,
+    // html: '<h1>Hi Smartherd</h1><p>Your Messsage</p>'
+  };
+
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Email sent: " + info.response);
+    }
+  }); 
+
+  return (
+    // <form className="contact-form" onSubmit={sendEmail}>
+    //   <input type="hidden" name="contact_number" />
+    //   <label>Name</label>
+    //   <input type="text" name="user_name" />
+    //   <label>Email</label>
+    //   <input type="email" name="user_email" />
+    //   <label>Message</label>
+    //   <textarea name="message" />
+    //   <input type="submit" value="Send" />
+    // </form>
+    <div>
+      <h1>email has been sent you at </h1>
+      <h1>{listOfFriends[listOfFriends.length - 1].mail}</h1>
+    </div>
+  );
+}
+
+
+
