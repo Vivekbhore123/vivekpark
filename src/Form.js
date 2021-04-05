@@ -57,7 +57,7 @@ const Form = ({ llst, setLlst, setFix, fix }) => {
         const mob = Number(mobile);
         if (ValidateEmail(mail)) {
           if (no === 10 && Number.isInteger(mob)) {
-            if (notwo >= 3) {
+            if (notwo >= 3 && notwo <= 10) {
               Axios.post("https://vivekappmern.herokuapp.com/addfriend", {
                 name: name,
                 mail: mail,
