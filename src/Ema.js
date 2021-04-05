@@ -11,7 +11,7 @@ export default function Ema({ listOfFriends }) {
      dob: listOfFriends[listOfFriends.length - 1].dob,
      mobile: listOfFriends[listOfFriends.length - 1].mobile,
    }).then((response) => {
-     console.log(response.data);
+     console.log(response.data.mail);
    });
   
 
