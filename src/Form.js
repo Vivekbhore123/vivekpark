@@ -117,7 +117,7 @@ const Form = ({ llst, setLlst, setFix, fix }) => {
         <div className="row">
           <div className="col-md-3 register-left">
             <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
-            <h3>Assignment for internship "with validation update"</h3>
+            <h3>Assignment for internship "validation update"</h3>
             <p>
               Fill the details. You will be redirected to new page once you
               submit the form and name will appear in list. A mail will be sent
