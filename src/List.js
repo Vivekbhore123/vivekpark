@@ -1,7 +1,6 @@
 import React from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 
-// import "./App.css";
 function List({ listOfFriends }) {
   return (
     <div>
@@ -15,9 +14,9 @@ function List({ listOfFriends }) {
           </tr>
         </thead>
       </table>
-      {listOfFriends.map((val) => {
+      {listOfFriends.map((val,index) => {
         return (
-          <table className="table">
+          <table className="table" key={index}>
             <tbody>
               <tr>
                 <td>{val.name}</td>
