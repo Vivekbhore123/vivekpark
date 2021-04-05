@@ -11,19 +11,11 @@ export default function Ema({ listOfFriends }) {
      dob: listOfFriends[listOfFriends.length - 1].dob,
      mobile: listOfFriends[listOfFriends.length - 1].mobile,
    }).then((response) => {
-     console.log(response.data.mail);
+     console.log(response.data);
    });
   
-
-
-  
-
-
-  return (
-   
-
-
-    <div>
+   return (
+  <div>
       <h5>email has been sent you at </h5>
       <h5>{listOfFriends[listOfFriends.length - 1].mail}</h5>
     </div>
