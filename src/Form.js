@@ -86,7 +86,7 @@ const Form = ({ llst, setLlst, setFix, fix }) => {
                   setFix(false);
                 });
             } else {
-              alert("name should contain at least 3 characters");
+              alert("name should contain 3 to 10 characters");
             }
           } else {
             alert("invalid mobile no");
